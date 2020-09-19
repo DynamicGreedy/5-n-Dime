@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const fast2sms = require('fast-two-sms');
 require('dotenv').config();
 let urlencodedParser = bodyParser.urlencoded({ extended: false });
 // Passport Config
@@ -107,7 +108,7 @@ app.post('/addqueuepage',urlencodedParser, function(req,res){
         }
         else
         {
-            Shopowner.find({pincode:req.body.pincode,area:req.body.area,shopname:req.body.shopname},async function(err,data)
+            Shopowner.find({pincode:req.body.pincode,area:req.body.area,shopname:req.body.shopname},function(err,data)
             {
                 // if(err)
                 // {
@@ -118,7 +119,7 @@ app.post('/addqueuepage',urlencodedParser, function(req,res){
                     var reachtime = timenow.getMinutes + ((data.length - 1) * 7);
                     console.log(reachtime);
                     console.log(data);
-                    const response = await fast2sms.sendMessage({authorization: process.env.API_KEY , message: "Dummy message by fast2sms" , numbers: [req.body.phonenumber]});
+                    const response = fast2sms.sendMessage({authorization: process.env.API_KEY , message: "Dummy message by fast2sms" , numbers: [req.body.phonenumber]});
                     res.render('shopsearch',{data:data,user:req.user});
                 }
                 catch(err) {
