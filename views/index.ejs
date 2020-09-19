@@ -23,7 +23,7 @@
 						<a href="#addshop">Add Shop</a>
 						<a href="#shopnow">Shop Now</a>
 						<a href="#donate">Donate</a>
-						<a href="#contactus">Contact Us</a> 
+						<a href="#contactus">Contact Us</a>
 						<% if (typeof user != 'undefined' ) { %>
 							<button class="button special"><a href="/"><%= user.name %></a></button>
 							<button class="button special"><a href="/logout">Logout</a></button>
@@ -211,7 +211,7 @@
 			<div class="inner">
 				<header>
 					<h2>SHOP NOW/SEARCH SHOP<br></h2><br>
-						<form method="POST" class="form-inline active-cyan-4" action="#">
+						<form method="POST" class="form-inline active-cyan-4" action="/filterpincode">
 							<input type="hidden" name="temp" value="2">
 						 <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Enter area PIN-Code" aria-label="Search" name="pincode">
 						 <i class="fas fa-search" aria-hidden="true"></i>
