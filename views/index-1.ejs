@@ -19,11 +19,11 @@
 				<div class="inner">
 					<a href="./" class="logo">5-&-DIME</a>
 					<nav id="nav">
-						<a href="/#about">About</a>
-						<a href="/#addshop">Add Shop</a>
-						<a href="/#shopnow">Shop Now</a>
-						<a href="/#donate">Donate</a>
-						<a href="/#contactus">Contact Us</a>
+						<a href="#about">About</a>
+						<a href="#addshop">Add Shop</a>
+						<a href="#shopnow">Shop Now</a>
+						<a href="#donate">Donate</a>
+						<a href="#contactus">Contact Us</a>
 						<% if (typeof user != 'undefined' ) { %>
 							<button class="button special">
 								<% if (user.addShop) { %>
@@ -118,9 +118,9 @@
 				<p><b>5-&-DIME</b></p>
 				<p>It provides a platform where customers can connect to their local shops. It aims at increasing the interaction between customers and shops in their locality by helping customers book their number on the shop they want to visit. The online booking system saves the customers, increases the sales in shops, and also helps in maintaining social distancing. Customers can also show their support to small businesses by donating them some funds.</p>
 				<br><p><b>FEATURES-</b></p>
-				<p><ul>-> Support small Biz: Five-n-dime provides an easy-to-use interface to see local small businesses and donate some money to them if they need financial help</ul></p>
-				<p><ul>-> Book your number: Customers can reserve their slot online at any shop they want to visit, they will be provided with a token number and they will be notified the time they should visit that shop.</ul></p>
-				<p><ul>-> Advertise your product/service/offer: Five-n-dime provides a column where business owners can share a post advertising their products, services, offers.</ul></p>
+				<p><ul><span class="fa fa-hand-o-right"></span> <b>Support small Biz:</b> Five-n-dime provides an easy-to-use interface to see local small businesses and donate some money to them if they need financial help</ul></p>
+				<p><ul><span class="fa fa-hand-o-right"></span> <b>Book your number:</b> Customers can reserve their slot online at any shop they want to visit, they will be provided with a token number and they will be notified the time they should visit that shop.</ul></p>
+				<p><ul><span class="fa fa-hand-o-right"></span> <b>Advertise your product/service/offer:</b> Five-n-dime provides a column where business owners can share a post advertising their products, services, offers.</ul></p>
 			</div>
 		</section>
 
@@ -171,33 +171,38 @@
 						</header>
 						<p>Fill required details in the form to register your shop/startup/business on 5-&-DIME</p>
 						<ul class="actions">
-							<li><a href="./formaddshop" class="button alt">Register Shop</a></li>
+							<% if (typeof user != 'undefined' ) { %>
+								<% if (user.addShop) { %>
+									<li><div class="button alt">Already Registered</div></li>
+								<% } else { %>
+									<li><a href="./formaddshop" class="button alt">Register Shop</a></li>
+								<% } %>
+							<% } else {%>
+								<li><a href="./formaddshop" class="button alt">Register Shop</a></li>
+							<% } %>
 						</ul>
 					</div>
 				</article>
 			</div>
 		</section>
 
-
-		<!-- shopnow -->
-		<!-- <section id="shopnow"></section> -->
+        <!-- shopnow -->
 		<section id="shopnow">
 
 			<div class="inner">
 				<header>
-					<h2>SHOP NOW<br></h2><br>
-						<form action="/filterarea" method="post">
-
-							<select  name="area">
-								<%for(let i=0;i<val.length;i++){%>
-									<option value="<%=val[i]%>"><%=val[i]%></option>
-								<%}%>
-							</select>
-							<br>
-							<br>
-							 <input type="hidden" name="pincode" value="<%=pcode.pc%>">
-							 <input type="submit" name="click" value="Submit">
-						</form>
+					<h2>SHOP NOW/SEARCH SHOP<br></h2><br>
+					<form action="/filterarea" method="post">
+						<select  name="area">
+							<%for(let i=0;i<val.length;i++){%>
+								<option value="<%=val[i]%>"><%=val[i]%></option>
+							<%}%>
+						</select>
+						<br>
+						<br>
+						 <input type="hidden" name="pincode" value="<%=pcode.pc%>">
+						 <input type="submit" name="click" value="Submit">
+					</form>
 				</header>
 				<p>Customer can open the account of any shop which are registered on the website, there he/she can find the current number of customers which are lined up and are yet to visit the shop to buy their required commodities, and the expected time for his turn.</p>
 				<p>To book a slot at any shop customer will be required to register through his/her phone number and he/she will be provided with a token number.</p>
@@ -243,14 +248,14 @@
 		</section>
 
 		<!-- contactus -->
-		<section id="contactus">
-			<div class="inner">
+		<section id="contactus" style="background-color:#4a5050">
+			<div class="inner" >
 				<header>
-					<h2>CONTACT US<br><br></h2>
+					<h2 style="color:#e5474b">CONTACT US<br><br></h2>
 				</header>
-				<div class="copyright">
-					&copy; 2020  <a href =" "><span class="icon fa-envelope-o "></span> minions</a>
-					<br> Contributers: <a href=""><span class="icon fa-linkedin"></span> Aman Kr Singh</a>. <a href=""><span class="icon fa-linkedin"></span> Pranjul Pal</a>. <a href="https://www.linkedin.com/in/roopam-mishra-713583189/"><span class="icon fa-linkedin"></span> Roopam Mishra</a>. <a href="https://www.linkedin.com/in/sonali-singh-16m/"><span class="icon fa-linkedin"></span> Sonali Singh</a>
+				<div class="copyright" style="color:#e5474b">
+					<span style="font-size:18px">&copy; 2020 :</span>  <a style="text-decoration: none" href =" "><span class="icon fa-envelope-o"></span> minions</a>
+					<br> <span style="font-size:18px">Developers :</span> <a style="text-decoration: none" href="https://www.linkedin.com/in/markamansingh/"><span class="icon fa-linkedin"></span> Aman Kr Singh </a>  <a style="text-decoration: none" href="https://meet.google.com/linkredirect?authuser=0&dest=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fpranjul-pal-51a24217b%2F"><span class="icon fa-linkedin"></span> Pranjul Pal </a> <a style="text-decoration: none" href="https://www.linkedin.com/in/roopam-mishra-713583189/"><span class="icon fa-linkedin"></span> Roopam Mishra </a> <a style="text-decoration: none" href="https://www.linkedin.com/in/sonali-singh-16m/"> <span class="icon fa-linkedin"></span> Sonali Singh</a>
 				</div>
 			</div>
 		</section>
