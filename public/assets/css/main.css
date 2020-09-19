@@ -439,6 +439,65 @@ button,
             background-color: #e23135;
         }
 
+/* Icon */
+
+.icon:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none !important;
+}
+
+.image.fit {
+    display: block;
+    margin: 0 0 2em 0;
+    width: 100%;
+}
+
+    .image.fit img {
+        width: 100%;
+    }
+
+ul {
+list-style: disc;
+margin: 0 0 2em 0;
+padding-left: 1em;
+}
+
+ul li {
+    padding-left: 0.5em;
+}
+
+ul.alt {
+    list-style: none;
+    padding-left: 0;
+}
+
+    ul.alt li {
+        border-top: solid 1px;
+        padding: 0.5em 0;
+        font-size: 1.2em;                                                     /*in shopsearch: customer count line*/                                  
+    }
+
+
+ ul.actions {                             
+    cursor: default;
+    list-style: none;
+    padding-left: 0;
+}
+
+    ul.actions li {
+        display: inline-block;
+        padding: 0 1em 0 0;
+        vertical-align: middle;
+    } 
+
+ul.alt li {
+border-top-color: #e5474b;
+}
+
 
 /* Section/Article */
 
@@ -862,63 +921,62 @@ button,
 
 /* contactus */
 
-	#contactus {
-		background-color: #e5474b;
-		color: #f2a3a5;
-		padding: 2em 0 2em 0;
-		background: #e5474b;
-	}
+#contactus {
+    background-color: #e5474b;
+    color: #f2a3a5;
+    padding: 2em 0 2em 0;
+    background: #e5474b;
+}
 
-		#contactus input, #contactus select, #contactus textarea {
-			color: #ffffff;
-		}
+    #contactus input, #contactus select, #contactus textarea {
+        color: #ffffff;
+    }
 
-		#contactus a {
-			color: #ffffff;
-		}
+    #contactus a {
+        color: #ffffff;
+    }
 
-		#contactus h1, #contactus h2, #contactus h3, #contactus h4, #contactus h5, #contactus h6 {
-			color: #fff;
-		}
+    #contactus h1, #contactus h2, #contactus h3, #contactus h4, #contactus h5, #contactus h6 {
+        color: #fff;
+    }
 
-			#contactus input[type="submit"].alt,
-			#contactus input[type="reset"].alt,
-			#contactus input[type="button"].alt,
-			#contactus button.alt,
-			#contactus .button.alt {
-				background-color: transparent;
-				box-shadow: inset 0 0 0 2px #fff;
-				color: #ffffff !important;
-			}
+        #contactus input[type="submit"].alt,
+        #contactus input[type="reset"].alt,
+        #contactus input[type="button"].alt,
+        #contactus button.alt,
+        #contactus .button.alt {
+            background-color: transparent;
+            box-shadow: inset 0 0 0 2px #fff;
+            color: #ffffff !important;
+        }
 
-				#contactus input[type="submit"].alt:hover,
-				#contactus input[type="reset"].alt:hover,
-				#contactus input[type="button"].alt:hover,
-				#contactus button.alt:hover,
-				#contactus .button.alt:hover {
-					background: rgba(255, 255, 255, 0.25);
-				}
+            #contactus input[type="submit"].alt:hover,
+            #contactus input[type="reset"].alt:hover,
+            #contactus input[type="button"].alt:hover,
+            #contactus button.alt:hover,
+            #contactus .button.alt:hover {
+                background: rgba(255, 255, 255, 0.25);
+            }
 
-		#contactus label {
-			color: #ffffff;
-		}
+    #contactus label {
+        color: #ffffff;
+    }
 
-		#contactus input[type="text"],
-		#contactus input[type="password"],
-		#contactus input[type="email"],
-		#contactus select,
-		#contactus textarea {
-			background: none;
-			border-color: rgba(255, 255, 255, 0.25);
-		}
+    #contactus input[type="text"],
+    #contactus input[type="password"],
+    #contactus input[type="email"],
+    #contactus select,
+    #contactus textarea {
+        background: none;
+        border-color: rgba(255, 255, 255, 0.25);
+    }
 
-			#contactus input[type="text"]:focus,
-			#contactus input[type="password"]:focus,
-			#contactus input[type="email"]:focus,
-			#contactus select:focus,
-			#contactus textarea:focus {
-				border-color: #ffffff;
-				box-shadow: 0 0 0 1px #ffffff;
-			}
-
+        #contactus input[type="text"]:focus,
+        #contactus input[type="password"]:focus,
+        #contactus input[type="email"]:focus,
+        #contactus select:focus,
+        #contactus textarea:focus {
+            border-color: #ffffff;
+            box-shadow: 0 0 0 1px #ffffff;
+        }
 		
