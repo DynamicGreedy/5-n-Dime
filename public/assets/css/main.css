@@ -34,3 +34,379 @@ table {
 body {
     -webkit-text-size-adjust: none;
 }
+
+
+/* Type */
+
+body {
+    background-color: #fff;
+    color: #111111;
+}
+body, input, select, textarea {
+    font-family: "Lato", sans-serif;
+    font-size: 15pt;
+    font-weight: 300;
+    line-height: 2;
+}
+
+    @media screen and (max-width: 1680px) {
+
+        body, input, select, textarea {
+            font-size: 13pt;
+        }
+
+    }
+    @media screen and (max-width: 1280px) {
+
+        body, input, select, textarea {
+            font-size: 13pt;
+        }
+
+    }
+    @media screen and (max-width: 980px) {
+
+        body, input, select, textarea {
+            font-size: 12pt;
+        }
+
+    }
+    @media screen and (max-width: 736px) {
+
+        body, input, select, textarea {
+            font-size: 12pt;
+        }
+
+    }
+    @media screen and (max-width: 480px) {
+
+        body, input, select, textarea {
+            font-size: 12pt;
+        }
+    }
+
+a {
+    -moz-transition: color 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+strong, b {
+    font-weight: 700;
+}
+
+em, i {
+    font-style: italic;
+}
+
+p {
+    margin: 0 0 2em 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 0 1em 0;
+    text-transform: uppercase;
+}
+
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+h1 {
+    font-size: 2em;
+    margin: 0 0 0.25em 0;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.35em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5 {
+    font-size: 0.9em;
+}
+
+h6 {
+    font-size: 0.7em;
+}
+
+@media screen and (max-width: 736px) {
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.25em;
+    }
+
+    h3 {
+        font-size: 1.1em;
+    }
+
+}
+
+code {
+    border-radius: 0;
+    border: solid 1px;
+    font-family: "Courier New", monospace;
+    font-size: 2em;
+    margin: 0 0.25em;
+    padding: 0.25em 0.65em;
+}
+
+pre {
+    -webkit-overflow-scrolling: touch;
+    font-family: "Courier New", monospace;
+    font-size: 7em;
+    margin: 0 0 2em 0;
+}
+
+    pre code {
+        display: block;
+        line-height: 2.75;
+        padding: 1em 1.5em;
+        overflow-x: auto;
+    }
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+input, select, textarea {
+    color: #e5474b;
+}
+
+a {
+    color: #e5474b;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #e5474b;
+}
+
+code {
+    background: none;
+    border-color: #e5474b;
+}
+
+
+
+
+/* Menu */
+
+#nav {
+    display: inline-block;
+}
+
+    @media screen and (max-width: 980px) {
+
+        #nav {
+            display: none;
+        }
+
+    }
+
+.navPanelToggle {
+    position: fixed;
+    text-decoration: none;
+    height: 4em;
+    right: 3em;
+    top: .75em;
+    width: 4em;
+    display: none;
+    z-index: 10002;
+}
+
+    .navPanelToggle:before {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-transform: none !important;
+        color: #fff;
+        display: block;
+        font-size: 16px;
+        height: 2.25em;
+        left: 0.5em;
+        line-height: 2.25em;
+        position: absolute;
+        text-align: center;
+        top: 0.5em;
+        width: 3.5em;
+    }
+
+    @media screen and (max-width: 980px) {
+
+        .navPanelToggle {
+            display: block;
+        }
+
+    }
+
+    @media screen and (max-width: 736px) {
+
+        .navPanelToggle {
+            right: 1em;
+        }
+
+    }
+
+    .navPanelToggle *:before {
+        color: #fff;
+        display: block;
+        font-size: 16px;
+        height: 2.25em;
+        left: 0.5em;
+        line-height: 2.25em;
+        position: absolute;
+        text-align: center;
+        top: 0.5em;
+        width: 3.5em;
+    }
+
+
+
+
+
+/* Main */
+
+#main {
+    padding: 4em 0 2em 0;
+}
+
+#about {
+    padding: 6em 0 4em 0;
+}
+
+    @media screen and (max-width: 980px) {
+
+        #about {
+            padding: 4em 0 2em 0;
+        }
+
+    }
+
+    @media screen and (max-width: 736px) {
+
+        #about {
+            padding: 2em 0 0.1em 0;
+        }
+
+    }
+
+
+#addshop {
+    padding: 6em 0 4em 0;
+    background: #f3f3f3;                                                                                                    
+    background: -moz-linear-gradient(left, #f3f3f3 0%, #f3f3f3 50%, #f7f7f7 0%, #f7f7f7 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#f7f7f7',GradientType=1 );     
+}
+
+    #addshop .inner {
+        display: -ms-flexbox;
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -moz-flex-direction: row;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -moz-justify-content: space-between;
+        -webkit-justify-content: space-between;
+        -ms-justify-content: space-between;
+        justify-content: space-between;
+        -ms-flex-pack: justify;
+    }
+
+        #addshop .inner article {
+            width: 26%;
+            display: block;
+        }
+
+            #addshop .inner article p {
+                color: #717171;
+            }
+
+            #addshop .inner article .icon {
+                color: #b3b3b3;
+                font-size: 3em;
+            }
+
+        @media screen and (max-width: 980px) {
+
+            #addshop .inner {
+                -moz-flex-direction: column;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+
+                #addshop .inner article {
+                    width: 100%;
+                    margin: 0 auto;
+                }
+
+        }
+
+    @media screen and (max-width: 980px) {
+
+        #addshop {
+            padding: 4em 0 2em 0;
+            background: -moz-linear-gradient(top, #f3f3f3 0%, #f3f3f3 50%, #f7f7f7 0%, #f7f7f7 100%);      
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#f7f7f7',GradientType=0 );   
+        }
+
+    }
+
+    @media screen and (max-width: 736px) {
+
+        #addshop {
+            padding: 2em 0 0.1em 0;
+        }
+
+    }
+
+#shopnow {
+    padding: 6em 0 4em 0;
+}
+
+    @media screen and (max-width: 980px) {
+
+        #shopnow {
+            padding: 4em 0 2em 0;
+        }
+
+    }
+
+    @media screen and (max-width: 736px) {
+
+        #shopnow {
+            padding: 2em 0 0.1em 0;
+        }
+
+    }
