@@ -171,7 +171,15 @@
 						</header>
 						<p>Fill required details in the form to register your shop/startup/business on 5-&-DIME</p>
 						<ul class="actions">
-							<li><a href="./formaddshop" class="button alt">Register Shop</a></li>
+							<% if (typeof user != 'undefined' ) { %>
+								<% if (user.addShop) { %>
+									<li><div class="button alt">Already Registered</div></li>
+								<% } else { %>
+									<li><a href="./formaddshop" class="button alt">Register Shop</a></li>
+								<% } %>
+							<% } else {%>
+								<li><a href="./formaddshop" class="button alt">Register Shop</a></li>
+							<% } %>
 						</ul>
 					</div>
 				</article>
