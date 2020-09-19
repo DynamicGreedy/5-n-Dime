@@ -93,6 +93,42 @@ app.post('/finalfilter',function(req,res)
           res.render('shopsearch',{data:data,user:req.user});
       })
 });
+
+// app.post('/addqueuepage',urlencodedParser, function(req,res){
+    Shopowner.findOneAndUpdate({pincode:req.body.pincode,area:req.body.area,shopname:req.body.shopname},
+    {
+        $push: {phoneNumbers:req.body.phonenumber,items:req.body.listofitems}
+    },
+    function(err, docs)
+    {
+        if(err)
+        {
+            res.json(err);
+        }
+        else
+        {
+            Shopowner.find({pincode:req.body.pincode,area:req.body.area,shopname:req.body.shopname},async function(err,data)
+            {
+                // if(err)
+                // {
+                //     process.exit(1);
+                // }
+                try {
+                    var timenow = new Date();
+                    var reachtime = timenow.getMinutes + ((data.length - 1) * 7);
+                    console.log(reachtime);
+                    console.log(data);
+                    const response = await fast2sms.sendMessage({authorization: process.env.API_KEY , message: "Dummy message by fast2sms" , numbers: [req.body.phonenumber]});
+                    res.render('shopsearch',{data:data,user:req.user});
+                }
+                catch(err) {
+                    console.log(err);
+                    process.exit(1);
+                }
+            })
+        }
+   });
+});
 app.use('/', require('./routes/users.js'));
 app.listen(port,()=>{
     console.log(`Server is running at http://localhost:${port}`);
