@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>5-n-dime</title>
+		<title>5-&-DIME</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -17,7 +17,7 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="./" class="logo">5-n-dime</a>
+					<a href="./" class="logo">5-&-DIME</a>
 					<nav id="nav">
 						<a href="#about">About</a>
 						<a href="#addshop">Add Shop</a>
@@ -41,45 +41,12 @@
 				</div>
 			</header>
 			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-			<% if(typeof errors != 'undefined') { %>
-				<% errors.forEach(function(error) { %>
-					<div class="alert alert-warning alert-dismissible fade show" role="alert">
-						<%= error.msg %>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				<% }); %>
-			<% } %>
-			<% if(success_msg != ''){ %>
-				<div class="alert alert-success alert-dismissible fade show" role="alert">
-					<%= success_msg %>
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-			<% } %>
-			<% if(error_msg != ''){ %>
-				<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					<%= error_msg %>
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-			<% } %>
-			<% if(error != ''){ %>
-				<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					<%= error %>
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-			<% } %>
+			<%- include("./partials/messages") %>
 
 		<!-- Banner -->
 		<section id="banner">
 			<div class="inner">
-				<h1>5-n-dime: <span>Sab Kuch milega yahan</span></h1>
+				<h1>5-&-DIME: <span>Sab Kuch milega yahan</span></h1>
 				<ul class="actions">
 					<!--Carousel Wrapper-->
 					<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
@@ -148,7 +115,7 @@
 				<header>
 					<h2>About<br><br></h2>
 				</header>
-				<p><b>Five-n Dime</b></p>
+				<p><b>5-&-DIME</b></p>
 				<p>It provides a platform where customers can connect to their local shops. It aims at increasing the interaction between customers and shops in their locality by helping customers book their number on the shop they want to visit. The online booking system saves the customers, increases the sales in shops, and also helps in maintaining social distancing. Customers can also show their support to small businesses by donating them some funds.</p>
 				<br><p><b>FEATURES-</b></p>
 				<p><ul>-> Support small Biz: Five-n-dime provides an easy-to-use interface to see local small businesses and donate some money to them if they need financial help</ul></p>
@@ -172,7 +139,7 @@
 						<header>
 							<h3>Step-1</h3>
 						</header>
-						<p>Login/Register on website five-n-dime</p>
+						<p>Login/Register on website 5-&-DIME</p>
 						<ul class="actions">
 							<li><a href="/formlogin" class="button alt">Login/Register</a></li>
 						</ul>
@@ -202,7 +169,7 @@
 						<header>
 							<h3>Step-3</h3>
 						</header>
-						<p>Fill required details in the form to register your shop/startup/business on Five-n-dime</p>
+						<p>Fill required details in the form to register your shop/startup/business on 5-&-DIME</p>
 						<ul class="actions">
 							<li><a href="./formaddshop" class="button alt">Register Shop</a></li>
 						</ul>
