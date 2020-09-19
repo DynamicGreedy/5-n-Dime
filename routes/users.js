@@ -251,4 +251,12 @@ router.post('/formaddshop',ensureAuthenticated, (req, res) =>{
     }
 });
 
+// MyShops
+router.get('/myshop' , ensureAuthenticated , (req , res) => {
+    Shopowner.find({email: req.user.email} , (err , data) => {
+        if(err) throw err;
+        res.render('myshop' , {data: data,user:req.user});
+    });
+});
+
 module.exports = router;
