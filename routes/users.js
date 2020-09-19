@@ -5,6 +5,7 @@ const { forwardAuthenticated } = require('../config/auth');
 const { ensureAuthenticated } = require('../config/auth');
 const User = require('../models/User');
 const Shopowner = require('../models/Shopowner');
+const Donation = require('../models/Donation');
 
 router.get('/' , (req , res) => res.render('index' , {user: req.user}));
 
