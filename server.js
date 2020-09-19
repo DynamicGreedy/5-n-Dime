@@ -94,7 +94,7 @@ app.post('/finalfilter',function(req,res)
       })
 });
 
-// app.post('/addqueuepage',urlencodedParser, function(req,res){
+app.post('/addqueuepage',urlencodedParser, function(req,res){
     Shopowner.findOneAndUpdate({pincode:req.body.pincode,area:req.body.area,shopname:req.body.shopname},
     {
         $push: {phoneNumbers:req.body.phonenumber,items:req.body.listofitems}
