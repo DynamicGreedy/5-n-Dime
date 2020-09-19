@@ -1098,7 +1098,10 @@ border-top-color: #e5474b;
 		#banner h1, #banner h2, #banner h3, #banner h4, #banner h5, #banner h6 {
 			color: #e5474b;
 		}
-
+/* sonali here  */
+/* sonali here  */
+/* sonali here  */
+/* sonali here  */
 		#banner:after {
 			-moz-transition: opacity 4s ease;
 			-webkit-transition: opacity 4s ease;
@@ -1111,7 +1114,7 @@ border-top-color: #e5474b;
 			display: block;
 			top: 0;
 			left: 0;
-			background-color: #0c0c0c;
+			background-color: #b3b3b3;
 			opacity: 0.25;
 		}
 
