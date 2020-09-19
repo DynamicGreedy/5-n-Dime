@@ -81,6 +81,18 @@ app.post('/filterarea',function(req,res)
       })
 });
 
+// final filter
+app.post('/finalfilter',function(req,res)
+{
+      Shopowner.find({pincode:req.body.pincode,area:req.body.area,shopname:req.body.shopname},function(err,data)
+      {
+          if(err)
+          {
+              process.exit(1);
+          }
+          res.render('shopsearch',{data:data,user:req.user});
+      })
+});
 app.use('/', require('./routes/users.js'));
 app.listen(port,()=>{
     console.log(`Server is running at http://localhost:${port}`);
