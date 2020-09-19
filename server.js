@@ -156,6 +156,35 @@ app.post('/editabout',urlencodedParser,function(req,res){
         }
    });
 });
+
+//reducing count of customers
+app.post('/reducecount',urlencodedParser,function(req,res){
+  console.log(req.body);
+    Shopowner.findOneAndUpdate({pincode:req.body.pincode,area:req.body.area,shopname:req.body.shopname},
+    {
+        $pop: {phoneNumbers:-1,items:-1}
+    },
+    function(err, docs)
+    {
+        if(err)
+        {
+            res.json(err);
+        }
+        else
+        {
+          Shopowner.find({pincode:req.body.pincode,area:req.body.area,shopname:req.body.shopname},function(err,data)
+          {
+              if(err)
+              {
+                  process.exit(1);
+              }
+
+              res.render('myshop',{data:data,user:req.user});
+          })
+        }
+   });
+});
+
 app.use('/', require('./routes/users.js'));
 app.listen(port,()=>{
     console.log(`Server is running at http://localhost:${port}`);
