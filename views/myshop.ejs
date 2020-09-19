@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>5-n-dime</title>
+		<title>5-&-dime</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -17,13 +17,13 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="./" class="logo">5-n-dime</a>
+					<a href="./" class="logo">5-&-dime</a>
 					<nav id="nav">
-						<a href="#about">About</a>
-						<a href="#addshop">Add Shop</a>
-						<a href="#shopnow">Shop Now</a>
-						<a href="#donate">Donate</a>
-						<a href="#contactus">Contact Us</a>
+						<a href="/#about">About</a>
+						<a href="/#addshop">Add Shop</a>
+						<a href="/#shopnow">Shop Now</a>
+						<a href="/#donate">Donate</a>
+						<a href="/#contactus">Contact Us</a>
 						<% if (typeof user != 'undefined' ) { %>
 							<button class="button special">
 								<% if (user.addShop) { %>
@@ -41,7 +41,7 @@
 				</div>
 			</header>
             <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-
+            <%- include("./partials/messages") %>
             <section id="main">
                 <div class="inner">
                     <header class="major special">
@@ -98,24 +98,6 @@
 					<header>
 						<h2>CONTACT US<br><br></h2>
 					</header>
-
-					<!-- <form method="post" action="/contact1">
-						<div class="field half first">
-							<label for="username">Name</label>
-							<input type="text" name="username" id="username" />
-						</div>
-						<div class="field half">
-							<label for="useremail">Email</label>
-							<input type="email" name="useremail" id="useremail" />
-						</div>
-						<div class="field">
-							<label for="message">Message</label>
-							<textarea name="message" id="message" rows="4"></textarea>
-						</div>
-						<ul class="actions">
-							<li><input  type="submit" value="Send Message" class="alt" /></li>
-						</ul>
-					</form> -->
 					<div class="copyright">
 						&copy; 2020  <a href ="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=prefixsuffix.projects@gmail.com&su=SUBJECT&body=BODY&tf=1"><span class="icon fa-envelope-o "></span> prefix_suffix</a>
 						<br> Contributers: <a href=""><span class="icon fa-linkedin"></span> Aman Kr Singh</a>. <a href=""><span class="icon fa-linkedin"></span> Pranjul Pal</a>. <a href="https://www.linkedin.com/in/roopam-mishra-713583189/"><span class="icon fa-linkedin"></span> Roopam Mishra</a>. <a href="https://www.linkedin.com/in/sonali-singh-16m/"><span class="icon fa-linkedin"></span> Sonali Singh</a>

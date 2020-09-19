@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>5-n-dime</title>
+		<title>5-&-dime</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -17,13 +17,13 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="./" class="logo">5-n-dime</a>
+					<a href="./" class="logo">5-&-dime</a>
 					<nav id="nav">
-						<a href="#about">About</a>
-						<a href="#addshop">Add Shop</a>
-						<a href="#shopnow">Shop Now</a>
-						<a href="#donate">Donate</a>
-						<a href="#contactus">Contact Us</a>
+						<a href="/#about">About</a>
+						<a href="/#addshop">Add Shop</a>
+						<a href="/#shopnow">Shop Now</a>
+						<a href="/#donate">Donate</a>
+						<a href="/#contactus">Contact Us</a>
 						<% if (typeof user != 'undefined' ) { %>
 							<button class="button special">
 								<% if (user.addShop) { %>
@@ -41,40 +41,7 @@
 				</div>
 			</header>
 			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-			<% if(typeof errors != 'undefined') { %>
-				<% errors.forEach(function(error) { %>
-					<div class="alert alert-warning alert-dismissible fade show" role="alert">
-						<%= error.msg %>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				<% }); %>
-			<% } %>
-			<% if(success_msg != ''){ %>
-				<div class="alert alert-success alert-dismissible fade show" role="alert">
-					<%= success_msg %>
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-			<% } %>
-			<% if(error_msg != ''){ %>
-				<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					<%= error_msg %>
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-			<% } %>
-			<% if(error != ''){ %>
-				<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					<%= error %>
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-			<% } %>
+			<%- include("./partials/messages") %>
 
         <section id="main">
             <div class="inner">
