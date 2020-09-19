@@ -26,7 +26,13 @@
 						<a href="/#donate">Donate</a>
 						<a href="/#contactus">Contact Us</a>
 						<% if (typeof user != 'undefined' ) { %>
-							<button class="button special"><a href="/"><%= user.name %></a></button>
+							<button class="button special">
+								<% if (user.addShop) { %>
+									<a href="/myshop">My Shop</a>
+								<% } else { %>
+									<a href="/"><%= user.name %></a>
+								<% } %>
+							</button>
 							<button class="button special"><a href="/logout">Logout</a></button>
 						<% }else{ %>
 							<button class="button special"><a href="./formlogin">Login</a></button>
