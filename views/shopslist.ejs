@@ -97,7 +97,7 @@
 														<form  action="/finalfilter" method="post">
 															<div class="px-4">
 																<input type="hidden" name="shopname" value="<%=data[i].shopname%>">
-	                              <h3><a href="#"><%= data[i].shopname %></a></h3>
+	                              <h3><%= data[i].shopname %></h3>
 	                              <div class="mb-3">
 	                                <span><a href="#" class="mr-2"><span class="icon-star text-warning"></span></a>Current Customer Count: <%=data[i].items.length%></span>
 	                                <br>
