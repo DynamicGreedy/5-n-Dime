@@ -114,6 +114,65 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
+// donation post request
+router.post('/formdonate', (req, res) => {
+    const { donorname, ownername, shopname, amount} = req.body;
+    console.log(req.body.donorname);
+    console.log(req.body.ownername);
+    console.log(req.body.shopname);
+    console.log(req.body.amount);
+    let errors = [];
+
+    // Check required fields
+    if(!donorname || !ownername || !shopname || !amount ){
+        errors.push({msg:' Please fill in all fields'});
+    }
+
+    if (errors.length > 0) {
+        res.render('formdonate', {
+            errors,
+            donorname,
+            ownername,
+            shopname,
+            amount
+        });
+    }
+    else{
+        //Validation pass
+        Shopowner.findOne({shopname: shopname}).then(donation=>{
+            if(donation){
+                const newDonation = new Donation({
+                    donorname,
+                    ownername,
+                    shopname,
+                    amount
+                });
+                newDonation.save()
+                .then(donation => {
+                    req.flash(
+                        'success_msg',
+                        'Your request for donation has been sent'
+                    );
+                    res.redirect('/');
+                })
+                .catch(err => console.log(err))
+            }
+            else{
+                //Shop is not registered
+                errors.push({msg: 'Shop is not registered'});
+                res.render('formdonate', {
+                    errors,
+                    donorname,
+                    ownername,
+                    shopname,
+                    amount
+                });
+            }
+        });
+    }
+});
+
+
 //Add Shop
 router.get('/formaddshop',ensureAuthenticated, (req, res) => res.render('formaddshop'));
 router.post('/formaddshop',ensureAuthenticated, (req, res) =>{
