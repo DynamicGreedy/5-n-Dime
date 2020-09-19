@@ -9,10 +9,11 @@ const Shopowner = require('../models/Shopowner');
 router.get('/' , (req , res) => res.render('index' , {user: req.user}));
 
 // Register Page
+router.get('/formdonate', (req, res) => res.render('formdonate'));
 router.get('/formregister', forwardAuthenticated , (req, res) => res.render('formregister'));
 router.post('/formregister', (req, res) => {
     const { name, email, phone, gender, age, password, password2 } = req.body;
-    
+
     let errors = [];
 
     // Check required fields
@@ -36,8 +37,8 @@ router.post('/formregister', (req, res) => {
             errors,
             name,
             email,
-            phone, 
-            gender, 
+            phone,
+            gender,
             age,
             password,
             password2
@@ -54,8 +55,8 @@ router.post('/formregister', (req, res) => {
                     errors,
                     name,
                     email,
-                    phone, 
-                    gender, 
+                    phone,
+                    gender,
                     age,
                     password,
                     password2
@@ -66,8 +67,8 @@ router.post('/formregister', (req, res) => {
                 const newUser = new User({
                     name,
                     email,
-                    phone, 
-                    gender, 
+                    phone,
+                    gender,
                     age,
                     password
                 });
@@ -89,7 +90,7 @@ router.post('/formregister', (req, res) => {
                             res.redirect('/formlogin');
                         })
                         .catch(err => console.log(err));
-                    });        
+                    });
                 });
             }
         });
@@ -99,7 +100,7 @@ router.post('/formregister', (req, res) => {
 // Login Page
 router.get('/formlogin', forwardAuthenticated , (req, res) => res.render('formlogin'));
 router.post('/formlogin', (req, res, next) => {
-    
+
     passport.authenticate('local', {
       successRedirect: '/',
       failureRedirect: '/formlogin',
@@ -125,7 +126,7 @@ router.post('/formaddshop',ensureAuthenticated, (req, res) =>{
     // console.log(req.body.aboutshop);
     let errors = [];
 
-    if (!shopname || !ownername || !shoptype || !donationwant || !aboutshop || !pincode || !area) 
+    if (!shopname || !ownername || !shoptype || !donationwant || !aboutshop || !pincode || !area)
     {
         errors.push({ msg: 'Please enter all fields' });
     }
@@ -134,7 +135,7 @@ router.post('/formaddshop',ensureAuthenticated, (req, res) =>{
         res.render('formaddshop', {
             errors,
             shopname,
-            ownername,  
+            ownername,
             shoptype,
             donationwant,
             aboutshop,
@@ -144,9 +145,9 @@ router.post('/formaddshop',ensureAuthenticated, (req, res) =>{
     }
     else
     {
-        Shopowner.findOne({ shopname:shopname }).then(shopowner => 
+        Shopowner.findOne({ shopname:shopname }).then(shopowner =>
         {
-            if (shopowner) 
+            if (shopowner)
             {
                 errors.push({ msg: 'Shop name already exists' });
                 res.render('formaddshop', {
@@ -159,7 +160,7 @@ router.post('/formaddshop',ensureAuthenticated, (req, res) =>{
                 pincode,
                 area
                 });
-            } 
+            }
             else
             {
                 //console.log(req.user);
