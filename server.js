@@ -166,14 +166,15 @@ app.post('/addqueuepage',urlencodedParser, function(req,res){
                 // }
                 try {
                     if(data[0].items.length == 1) {
-                        const response = fast2sms.sendMessage({authorization: process.env.API_KEY , message: "You have been added to the queue successfully. It's your turn. You can leave for the shop now. In case you are not able to reach the shop within 7 minutes from the time of receiving this message, your registration will be cancelled. Regards, Team 5-&-DIME" , numbers: [req.body.phonenumber]});
+                        const response = fast2sms.sendMessage({authorization: process.env.API_KEY , message: `You have been added successfully to the queue at ${data[0].shopname}. It's your turn. You can leave for the shop now. In case you are not able to reach the shop within 7 minutes from the time of receiving this message, your registration will be cancelled. Regards, Team 5-&-dime` , numbers: [req.body.phonenumber]});
                     }
                     else if(data[0].items.length == 2) {
-                        const response = fast2sms.sendMessage({authorization: process.env.API_KEY , message: "You have been added to the queue successfully. You can leave for the shop 7 minutes later from the time of receiveing this message. In case you are not able to reach the shop within 14 minutes, your registration will be cancelled. Regards, Team 5-&-DIME" , numbers: [req.body.phonenumber]});
+                        const response = fast2sms.sendMessage({authorization: process.env.API_KEY , message: `You have been added successfully to the queue at ${data[0].shopname}. You can leave for the shop 7 minutes later from the time of receiveing this message. In case you are not able to reach the shop within 14 minutes, your registration will be cancelled. Regards, Team 5-&-dime` , numbers: [req.body.phonenumber]});
                     }
                     else {
-                        var exptime = (data[0].length - 1) * 7;
-                        const response = fast2sms.sendMessage({authorization: process.env.API_KEY , message: `You have been added to the queue successfully. Your expected time is ${exptime} minutes from now. You will be notified once again about the exact time. Regards, Team 5-&-DIME` , numbers: [req.body.phonenumber]});
+                        var exptime = (data[0].items.length - 1) * 7;
+                        //console.log(exptime);
+                        const response = fast2sms.sendMessage({authorization: process.env.API_KEY , message: `You have been added successfully to the queue at ${data[0].shopname}. Your expected time is ${exptime} minutes from now. You will be notified once again about the exact time. Regards, Team 5-&-dime` , numbers: [req.body.phonenumber]});
                     }
                     res.render('shopsearch',{data:data,user:req.user});
                 }
@@ -235,8 +236,8 @@ app.post('/reducecount',urlencodedParser,function(req,res){
               {
                   process.exit(1);
               }
-              if(data[0].length > 1) {
-                const response = fast2sms.sendMessage({authorization: process.env.API_KEY , message: "You have been added to the queue successfully. You can leave for the shop 7 minutes later from the time of receiveing this message. In case you are not able to reach the shop within 14 minutes, your registration will be cancelled. Regards, Team 5-&-DIME" , numbers: [data[0].phoneNumbers[1]]});
+              if(data[0].items.length > 1) {
+                const response = fast2sms.sendMessage({authorization: process.env.API_KEY , message: `This is a reminder message. You can leave for the shop 7 minutes later from the time of receiveing this message. In case you are not able to reach the shop within 14 minutes, your registration will be cancelled. Regards, Team 5-&-dime` , numbers: [data[0].phoneNumbers[1]]});
               }
               res.render('myshop',{data:data,user:req.user});
           })
