@@ -71,7 +71,7 @@
 
 ### :pushpin: Note:
     a) If you want to receive messages after adding yourself to queue, use your real phone number during queue addition.
-    b) Messege facility will not be available form 9 PM to 9 AM.
+    b) Messege facility will not be available from 9 PM to 9 AM.
 
 ### :hammer_and_wrench: Installation:
     1. Cloning repository.
