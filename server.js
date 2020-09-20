@@ -87,7 +87,21 @@ app.post('/filterpincode',function(req,res)
           };
           let val=Array.from(set);
           val.sort();
+          console.log(val.length);
+          if(data.length==0)
+          {
+              console.log(val);
+              console.log('11');
+            errors.push({ msg: 'No Shop is registered for this pincode.' });
+            res.render('index-1', {
+                errors,
+            pincode,
+            val:val,
+            pcode:pcode,
+            user:req.user
 
+            });
+          }
           res.render('index-1',{val:val,pcode:pcode,user:req.user});
       })
     }
@@ -123,9 +137,9 @@ app.post('/addqueuepage',urlencodedParser, ensureAuthenticated , function(req,re
     let phoneNumbers = req.body.phonenumber;
     let items= req.body.listofitems;
     let errors=[];
-    if (!phoneNumbers || !items)
+    if (!phoneNumbers)
     {
-        errors.push({ msg: 'Please fill in all the fields' });
+        errors.push({ msg: 'Please fill in your phone number' });
     }
     if(phoneNumbers.length !=10)
     {
