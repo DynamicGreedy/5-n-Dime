@@ -48,10 +48,30 @@ app.use(function(req, res, next) {
 
 app.post('/filterpincode',function(req,res)
 {
+    let pincode = req.body.pincode;
+    let errors=[];
+    if (!pincode)
+    {
+        errors.push({ msg: 'Please enter all fields' });
+    }
+    if(pincode.length != 6) errors.push({msg: "Please enter a valid pincode"});
+    if (errors.length > 0) {
+        res.render('index', {
+            errors,
+            pincode,
+        });
+    }
+    else{
       Shopowner.find({pincode:req.body.pincode},function(err,data)
       {
           if(err)
           {
+            errors.push({ msg: 'Not able to process the Pincode you entered' });
+            res.render('index', {
+                errors,
+            pincode,
+
+            });
               process.exit(1);
           }
           let set=new Set();
@@ -67,6 +87,7 @@ app.post('/filterpincode',function(req,res)
 
           res.render('index-1',{val:val,pcode:pcode,user:req.user});
       })
+    }
 });
 
 // area filter code
@@ -96,6 +117,35 @@ app.post('/finalfilter',function(req,res)
 });
 
 app.post('/addqueuepage',urlencodedParser, function(req,res){
+    let phoneNumbers = req.body.phonenumber;
+    let items= req.body.listofitems;
+    let errors=[];
+    if (!phoneNumbers || !items)
+    {
+        errors.push({ msg: 'Please fill in all the fields' });
+    }
+    if(phoneNumbers.length !=10)
+    {
+        errors.push({ msg: 'Please fill valid phone number' });
+    }
+    for(var i=0;i<phoneNumbers.length;i++)
+    {
+        if(phoneNumbers[i]<'0' || phoneNumbers[i]>'9')
+        {
+            errors.push({ msg: 'Please fill valid phone number' });
+            break;
+        }
+    }
+    if (errors.length > 0) {
+        Shopowner.find({pincode:req.body.pincode,area:req.body.area,shopname:req.body.shopname},function(err,data)
+        {
+            res.render('shopsearch',{data:data,
+                errors,
+                user:req.user});
+        });
+        
+    }
+    else{
     Shopowner.findOneAndUpdate({pincode:req.body.pincode,area:req.body.area,shopname:req.body.shopname},
     {
         $push: {phoneNumbers:req.body.phonenumber,items:req.body.listofitems}
@@ -134,6 +184,7 @@ app.post('/addqueuepage',urlencodedParser, function(req,res){
             })
         }
    });
+}
 });
 
 //editing about of shopowner
