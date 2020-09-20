@@ -85,7 +85,7 @@
           API_KEY=<SMS API key>
        
     4. Run web-app on local host.
-          npm index (entry js file)
+          node server (entry js file)
        
 ### :wrench: Contributing:
      If you have any idea to improve any functionality of our web-app or you want to add any new feature in our web app.
