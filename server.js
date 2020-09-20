@@ -178,10 +178,6 @@ app.post('/addqueuepage',urlencodedParser, ensureAuthenticated , function(req,re
                         //console.log(exptime);
                         const response = fast2sms.sendMessage({authorization: process.env.API_KEY , message: `You have been added successfully to the queue at ${data[0].shopname}. Your expected time is ${exptime} minutes from now. You will be notified once again about the exact time. Regards, Team 5-&-dime` , numbers: [req.body.phonenumber]});
                     }
-                    req.flash(
-                        'success_msg',
-                        'You have been successfully added to the queue.'
-                      );
                     res.render('shopsearch',{data:data,user:req.user});
                 }
                 catch(err) {
