@@ -8,6 +8,8 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const fast2sms = require('fast-two-sms');
+const { ensureAuthenticated } = require('./config/auth');
+
 require('dotenv').config();
 let urlencodedParser = bodyParser.urlencoded({ extended: false });
 // Passport Config
@@ -116,7 +118,7 @@ app.post('/finalfilter',function(req,res)
       })
 });
 
-app.post('/addqueuepage',urlencodedParser, function(req,res){
+app.post('/addqueuepage',urlencodedParser, ensureAuthenticated , function(req,res){
     let phoneNumbers = req.body.phonenumber;
     let items= req.body.listofitems;
     let errors=[];
@@ -176,6 +178,10 @@ app.post('/addqueuepage',urlencodedParser, function(req,res){
                         //console.log(exptime);
                         const response = fast2sms.sendMessage({authorization: process.env.API_KEY , message: `You have been added successfully to the queue at ${data[0].shopname}. Your expected time is ${exptime} minutes from now. You will be notified once again about the exact time. Regards, Team 5-&-dime` , numbers: [req.body.phonenumber]});
                     }
+                    req.flash(
+                        'success_msg',
+                        'You have been successfully added to the queue.'
+                      );
                     res.render('shopsearch',{data:data,user:req.user});
                 }
                 catch(err) {
