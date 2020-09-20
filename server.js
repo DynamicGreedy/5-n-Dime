@@ -76,6 +76,7 @@ app.post('/filterpincode',function(req,res)
             });
               process.exit(1);
           }
+          console.log(data.length);
           let set=new Set();
           for(let i=0;i<data.length;i++)
           {
@@ -145,7 +146,7 @@ app.post('/addqueuepage',urlencodedParser, ensureAuthenticated , function(req,re
                 errors,
                 user:req.user});
         });
-        
+
     }
     else{
     Shopowner.findOneAndUpdate({pincode:req.body.pincode,area:req.body.area,shopname:req.body.shopname},
