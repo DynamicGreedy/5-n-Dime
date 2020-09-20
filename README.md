@@ -81,7 +81,7 @@
           npm install
           
     3. Set all enviorement variables in .env file.
-          mongodburl=<database link>
+          mongodburl=<MONGODB URI>
           API_KEY=<SMS API key>
        
     4. Run web-app on local host.
