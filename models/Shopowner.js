@@ -9,7 +9,7 @@ const ShopownerSchema = new Schema({
    donationwant: { type: String, uppercase: true },
    aboutshop: { type: String, required: true},
    pincode: { type: Number, maxlength: 6 },
-   area: { type: String, required: true },
+   area: { type: String, required: true , uppercase: true},
    phoneNumbers: { type: Array, default: [] },
    items: { type: Array, default: [] },
 });
