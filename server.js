@@ -179,7 +179,7 @@ app.post('/reducecount',urlencodedParser,function(req,res){
               {
                   process.exit(1);
               }
-
+              
               res.render('myshop',{data:data,user:req.user});
           })
         }
