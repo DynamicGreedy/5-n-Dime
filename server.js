@@ -235,6 +235,9 @@ app.post('/reducecount',urlencodedParser,function(req,res){
               {
                   process.exit(1);
               }
+              if(data[0].length > 1) {
+                const response = fast2sms.sendMessage({authorization: process.env.API_KEY , message: "You have been added to the queue successfully. You can leave for the shop 7 minutes later from the time of receiveing this message. In case you are not able to reach the shop within 14 minutes, your registration will be cancelled. Regards, Team 5-&-DIME" , numbers: [data[0].phoneNumbers[1]]});
+              }
               res.render('myshop',{data:data,user:req.user});
           })
         }
