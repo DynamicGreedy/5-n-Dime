@@ -44,8 +44,6 @@
     
    :zap: Anyone can test live working model <a href="https://five-n-dime.herokuapp.com/" target="_blank">here</a>.
 
-   :sound: You can see descriptive explanation of **5-&-dime** <a href="https://www.youtube.com/watch?v=iDuyNbIPBas&feature=youtu.be" target="_blank">here</a>.
-
 ### :boy: Dummy customer:
     You can Register/Login with your own Email Id or you can use our dummy data
     1.Customer-1
